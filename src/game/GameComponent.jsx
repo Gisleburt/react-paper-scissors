@@ -2,12 +2,12 @@ import React from 'react';
 import PaperIcon from '../icons/paper/PaperIconComponent';
 import RockIcon from '../icons/rock/RockIconComponent';
 import ScissorsIcon from '../icons/scissors/ScissorsIconComponent';
-import buttonCreator from '../button/ButtonComponentCreator';
+import createButton from '../button/ButtonComponentCreator';
 
 const GameComponent = () => {
-  const RockButton = buttonCreator(RockIcon);
-  const PaperButton = buttonCreator(PaperIcon);
-  const ScissorsButton = buttonCreator(ScissorsIcon);
+  const RockButton = createButton(RockIcon);
+  const PaperButton = createButton(PaperIcon);
+  const ScissorsButton = createButton(ScissorsIcon);
 
   return (
     <section>
