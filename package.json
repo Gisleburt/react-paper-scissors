@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "babel-node node_modules/.bin/webpack",
-    "lint": "eslint src",
+    "lint": "babel-node node_modules/.bin/eslint src/*.jsx src/**/*.jsx",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -31,6 +31,7 @@
     "babel-loader": "^7.1.1",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "^5.1.1",
+    "prop-types": "^15.5.10",
     "react": "^15.6.1",
     "react-dom": "^15.6.1"
   }

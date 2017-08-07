@@ -9,13 +9,16 @@ export default {
     filename: 'app.js',
     path: BUILD_DIR,
   },
-  module : {
-    loaders : [
+  resolve: {
+    extensions: ['.js', '.jsx'],
+  },
+  module: {
+    loaders: [
       {
-        test : /\.jsx?/,
-        include : SRC_DIR,
-        loader : 'babel-loader'
-      }
-    ]
-  }
-}
+        test: /\.jsx?/,
+        include: SRC_DIR,
+        loader: 'babel-loader',
+      },
+    ],
+  },
+};
