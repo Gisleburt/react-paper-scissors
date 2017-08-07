@@ -13,3 +13,4 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 - Open Source Documents (ChangeLog, Readme, License)
 - Basic build (React, Babel, Webpack)
+- Added QA tools (ESLint)
