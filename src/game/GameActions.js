@@ -5,7 +5,7 @@ const ROCK = 'ROCK';
 const PAPER = 'PAPER';
 const SCISSORS = 'SCISSORS';
 
-export const choices = { ROCK, PAPER, SCISSORS };
+export const possibleChoices = { ROCK, PAPER, SCISSORS };
 
 export const playerChoiceAction = (choice) => ({
   type: PLAYER_CHOICE,

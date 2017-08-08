@@ -1,5 +1,5 @@
 import gameReducer from './GameReducer';
-import { choices, playerChoiceAction, aiChoiceAction } from './GameActions';
+import { possibleChoices, playerChoiceAction, aiChoiceAction } from './GameActions';
 
 describe('GameReducer', () => {
   it('should have an initial state in which both players choices are set to null', () => {
@@ -9,18 +9,18 @@ describe('GameReducer', () => {
   });
 
   it('should update the player choice with a player choice action', () => {
-    const action = playerChoiceAction(choices.ROCK);
+    const action = playerChoiceAction(possibleChoices.ROCK);
     const initialState = gameReducer();
     const state = gameReducer(initialState, action);
-    expect(state).to.have.property('playerChoice', choices.ROCK);
+    expect(state).to.have.property('playerChoice', possibleChoices.ROCK);
     expect(state).to.have.property('aiChoice', null);
   });
 
   it('should update the player choice with a ai choice action', () => {
-    const action = aiChoiceAction(choices.PAPER);
+    const action = aiChoiceAction(possibleChoices.PAPER);
     const initialState = gameReducer();
     const state = gameReducer(initialState, action);
     expect(state).to.have.property('playerChoice', null);
-    expect(state).to.have.property('aiChoice', choices.PAPER);
+    expect(state).to.have.property('aiChoice', possibleChoices.PAPER);
   });
 });

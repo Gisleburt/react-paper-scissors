@@ -1,5 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Game from './game/GameComponent';
+import { createStore, combineReducers } from 'redux';
+import { Provider } from 'react-redux';
+import Game from './game/GameContainer';
+import choices from './game/GameReducer';
 
-ReactDOM.render(<Game />, window.document.getElementById('app'));
+const store = createStore(combineReducers({ choices }));
+
+const app = (
+  <Provider store={store}>
+    <Game />
+  </Provider>
+);
+
+ReactDOM.render(app, window.document.getElementById('app'));
