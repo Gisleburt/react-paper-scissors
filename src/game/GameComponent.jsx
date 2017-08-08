@@ -4,7 +4,7 @@ import RockIcon from '../icons/rock/RockIconComponent';
 import PaperIcon from '../icons/paper/PaperIconComponent';
 import ScissorsIcon from '../icons/scissors/ScissorsIconComponent';
 import createButton from '../button/ButtonComponentCreator';
-import Result from '../result/ResultComponent';
+import Choice from '../choice/ChoiceComponent';
 import { possibleChoices, randomChoice } from './GameActions';
 
 import './Game.scss';
@@ -13,11 +13,17 @@ class GameComponent extends React.Component {
   constructor(props) {
     super(props);
     this.makeChoice = this.makeChoice.bind(this);
+    this.resetChoices = this.resetChoices.bind(this);
   }
 
   makeChoice(choice) {
     this.props.actions.makePlayerChoice(choice);
     this.props.actions.makeAiChoice(randomChoice());
+  }
+
+  resetChoices() {
+    this.props.actions.makePlayerChoice(null);
+    this.props.actions.makeAiChoice(null);
   }
 
   render() {
@@ -31,18 +37,21 @@ class GameComponent extends React.Component {
         <header className="game-component__header">React Paper Scissors</header>
         <section className="game-component__choices">
           <div className="game-component__choice">
-            <Result choice={choices.playerChoice} />
-            Your Result
+            <Choice choice={choices.playerChoice} />
+            Your Choice
           </div>
           <div className="game-component__choice">
-            <Result choice={choices.aiChoice} />
-            AI Result
+            <Choice choice={choices.aiChoice} />
+            AI Choice
           </div>
         </section>
-        <section className="game-component__buttons">
-          <RockButton onclick={() => this.makeChoice(possibleChoices.ROCK)} />
-          <PaperButton onclick={() => this.makeChoice(possibleChoices.PAPER)} />
-          <ScissorsButton onclick={() => this.makeChoice(possibleChoices.SCISSORS)} />
+        <section className={`game-component__buttons ${choices.playerChoice ? 'hidden' : ''}`}>
+          <RockButton onClick={() => this.makeChoice(possibleChoices.ROCK)} />
+          <PaperButton onClick={() => this.makeChoice(possibleChoices.PAPER)} />
+          <ScissorsButton onClick={() => this.makeChoice(possibleChoices.SCISSORS)} />
+        </section>
+        <section className={`game-component__buttons ${choices.playerChoice ? '' : 'hidden'}`}>
+          <a className="button" role="button" tabIndex={0} onClick={() => this.resetChoices()}>Play Again?</a>
         </section>
       </section>
     );

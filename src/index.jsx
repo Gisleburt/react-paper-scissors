@@ -6,6 +6,7 @@ import Game from './game/GameContainer';
 import choices from './game/GameReducer';
 
 import './reset.scss';
+import './defaults.scss';
 
 const store = createStore(combineReducers({ choices }));
 

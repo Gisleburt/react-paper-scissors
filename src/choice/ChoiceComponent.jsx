@@ -12,7 +12,7 @@ const mapChoiceToIcon = {
   [possibleChoices.SCISSORS]: ScissorsIcon,
 };
 
-const ResultComponent = ({ choice }) => {
+const ChoiceComponent = ({ choice }) => {
   if (Object.hasOwnProperty.call(mapChoiceToIcon, choice)) {
     const ResultIcon = mapChoiceToIcon[choice];
     return <ResultIcon />;
@@ -20,12 +20,12 @@ const ResultComponent = ({ choice }) => {
   return <QuestionIcon />;
 };
 
-ResultComponent.propTypes = {
+ChoiceComponent.propTypes = {
   choice: PropTypes.string,
 };
 
-ResultComponent.defaultProps = {
+ChoiceComponent.defaultProps = {
   choice: null,
 };
 
-export default ResultComponent;
+export default ChoiceComponent;
