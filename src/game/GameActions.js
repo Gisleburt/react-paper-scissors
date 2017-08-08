@@ -7,6 +7,10 @@ const SCISSORS = 'SCISSORS';
 
 export const possibleChoices = { ROCK, PAPER, SCISSORS };
 
+const choiceArray = Object.keys(possibleChoices);
+
+export const randomChoice = () => choiceArray[Math.floor(Math.random() * choiceArray.length)];
+
 export const playerChoiceAction = (choice) => ({
   type: PLAYER_CHOICE,
   choice,

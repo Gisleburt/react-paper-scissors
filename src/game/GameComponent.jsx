@@ -5,34 +5,47 @@ import PaperIcon from '../icons/paper/PaperIconComponent';
 import ScissorsIcon from '../icons/scissors/ScissorsIconComponent';
 import createButton from '../button/ButtonComponentCreator';
 import Result from '../result/ResultComponent';
-import { possibleChoices } from './GameActions';
+import { possibleChoices, randomChoice } from './GameActions';
 
-const GameComponent = ({ actions, choices }) => {
-  const RockButton = createButton(RockIcon);
-  const PaperButton = createButton(PaperIcon);
-  const ScissorsButton = createButton(ScissorsIcon);
+class GameComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.makeChoice = this.makeChoice.bind(this);
+  }
 
-  return (
-    <section>
-      <header>React Paper Scissors</header>
-      <section className="results">
-        <div>
-          <Result choice={choices.playerChoice} />
-          Your Result
-        </div>
-        <div>
-          <Result choice={choices.aiChoice} />
-          AI Result
-        </div>
+  makeChoice(choice) {
+    this.props.actions.makePlayerChoice(choice);
+    this.props.actions.makeAiChoice(randomChoice());
+  }
+
+  render() {
+    const { choices } = this.props;
+    const RockButton = createButton(RockIcon);
+    const PaperButton = createButton(PaperIcon);
+    const ScissorsButton = createButton(ScissorsIcon);
+
+    return (
+      <section>
+        <header>React Paper Scissors</header>
+        <section className="results">
+          <div>
+            <Result choice={choices.playerChoice} />
+            Your Result
+          </div>
+          <div>
+            <Result choice={choices.aiChoice} />
+            AI Result
+          </div>
+        </section>
+        <section className="choices">
+          <RockButton onclick={() => this.makeChoice(possibleChoices.ROCK)} />
+          <PaperButton onclick={() => this.makeChoice(possibleChoices.PAPER)} />
+          <ScissorsButton onclick={() => this.makeChoice(possibleChoices.SCISSORS)} />
+        </section>
       </section>
-      <section className="choices">
-        <RockButton onclick={() => actions.makePlayerChoice(possibleChoices.ROCK)} />
-        <PaperButton onclick={() => actions.makePlayerChoice(possibleChoices.PAPER)} />
-        <ScissorsButton onclick={() => actions.makePlayerChoice(possibleChoices.SCISSORS)} />
-      </section>
-    </section>
-  );
-};
+    );
+  }
+}
 
 GameComponent.propTypes = {
   actions: PropTypes.shape({
