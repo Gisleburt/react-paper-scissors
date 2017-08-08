@@ -6,10 +6,10 @@ export default (config) => {
     browsers: ['PhantomJS'],
     frameworks: ['mocha', 'chai'],
     files: [
-      { pattern: 'src/**/*Test.jsx', watched: false },
+      { pattern: 'src/**/*Test.js*', watched: false },
     ],
     preprocessors: {
-      'src/**/*Test.jsx': ['webpack'],
+      'src/**/*Test.js*': ['webpack'],
     },
     reporters: ['nyan'],
   });
