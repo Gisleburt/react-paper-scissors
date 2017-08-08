@@ -1,0 +1,39 @@
+.game-component {
+  &__header {
+    font-weight: bold;
+    font-family: sans-serif;
+    font-size: 3em;
+    text-align: center;
+  }
+
+  &__choices {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__choice {
+    margin: 20px;
+    font-size: 2em;
+    
+    div {
+      text-align: center;
+      padding: 25px;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: center;
+
+    div {
+      border: 1px solid grey;
+      margin: 20px;
+      padding: 10px;
+
+      &:hover {
+        border: 1px solid lightgrey;
+        cursor: pointer;
+      }
+    }
+  }
+}

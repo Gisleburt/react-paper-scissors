@@ -5,6 +5,8 @@ import { Provider } from 'react-redux';
 import Game from './game/GameContainer';
 import choices from './game/GameReducer';
 
+import './reset.scss';
+
 const store = createStore(combineReducers({ choices }));
 
 const app = (

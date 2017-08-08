@@ -7,6 +7,8 @@ import createButton from '../button/ButtonComponentCreator';
 import Result from '../result/ResultComponent';
 import { possibleChoices, randomChoice } from './GameActions';
 
+import './Game.scss';
+
 class GameComponent extends React.Component {
   constructor(props) {
     super(props);
@@ -25,19 +27,19 @@ class GameComponent extends React.Component {
     const ScissorsButton = createButton(ScissorsIcon);
 
     return (
-      <section>
-        <header>React Paper Scissors</header>
-        <section className="results">
-          <div>
+      <section className="game-component">
+        <header className="game-component__header">React Paper Scissors</header>
+        <section className="game-component__choices">
+          <div className="game-component__choice">
             <Result choice={choices.playerChoice} />
             Your Result
           </div>
-          <div>
+          <div className="game-component__choice">
             <Result choice={choices.aiChoice} />
             AI Result
           </div>
         </section>
-        <section className="choices">
+        <section className="game-component__buttons">
           <RockButton onclick={() => this.makeChoice(possibleChoices.ROCK)} />
           <PaperButton onclick={() => this.makeChoice(possibleChoices.PAPER)} />
           <ScissorsButton onclick={() => this.makeChoice(possibleChoices.SCISSORS)} />
