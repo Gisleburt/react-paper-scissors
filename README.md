@@ -37,6 +37,10 @@ To Do:
 - Webpack Dev Server (should have done this at the start to see my changes faster)
 - Rock, Paper, Scissor icons
 - Better styles
+- Right now, you can't see if it is responsive (everything was too small). Making larger icons, etc, might require 
+  using some media queries, however, the use of flex-box, also means the "choices" section would break in two with one
+  above the other anyway.
+- It would be cool if the AI choice cycled possibilities while the player made their choice. 
 
 Mistakes:
 ---------
