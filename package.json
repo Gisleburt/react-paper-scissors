@@ -4,7 +4,7 @@
   "description": "Playing with React",
   "main": "index.js",
   "scripts": {
-    "build": "babel-node node_modules/.bin/webpack",
+    "build": "babel-node node_modules/.bin/webpack && cp src/index.html build",
     "lint": "babel-node node_modules/.bin/eslint src/*.jsx src/**/*.jsx",
     "test": "babel-node node_modules/.bin/karma start --single-run",
     "test:watch": "babel-node node_modules/.bin/karma start"
