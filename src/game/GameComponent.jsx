@@ -5,6 +5,7 @@ import PaperIcon from '../icons/paper/PaperIconComponent';
 import ScissorsIcon from '../icons/scissors/ScissorsIconComponent';
 import createButton from '../button/ButtonComponentCreator';
 import Choice from '../choice/ChoiceComponent';
+import ResultComponent from '../result/ResultComponent';
 import { possibleChoices, randomChoice } from './GameActions';
 
 import './Game.scss';
@@ -44,6 +45,9 @@ class GameComponent extends React.Component {
             <Choice choice={choices.aiChoice} />
             AI Choice
           </div>
+        </section>
+        <section className="game-component__result">
+          <ResultComponent {...choices} />
         </section>
         <section className={`game-component__buttons ${choices.playerChoice ? 'hidden' : ''}`}>
           <RockButton onClick={() => this.makeChoice(possibleChoices.ROCK)} />
